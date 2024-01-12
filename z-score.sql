@@ -24,4 +24,4 @@ GROUP BY
 HAVING
     (UnitPrice - calc.media) / calc.desvio_padrao > 2 -- Aplicando a condição de filtro (z-score > 2)
 
--- O Banco de Dados utilizado nesse código vai estar disponível na pasta 'READ.ME', para quem quiser consultar o cógigo
+-- O Banco de Dados utilizado nesse código vai estar disponível na pasta 'README.md', para quem quiser consultar o cógigo
