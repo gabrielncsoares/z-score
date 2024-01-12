@@ -1,6 +1,6 @@
--- Definindo uma Tabela de Express„o Comum (CTE) chamada 'calc'
+-- Definindo uma Tabela de Express√£o Comum (CTE) chamada 'calc'
 WITH calc AS (
--- Calculando a mÈdia e o desvio padr„o do 'UnitPrice' da tabela 'Products'
+-- Calculando a m√©dia e o desvio padr√£o do 'UnitPrice' da tabela 'Products'
     SELECT
         AVG(UnitPrice) AS media,
         STDEV(UnitPrice) AS desvio_padrao
@@ -11,7 +11,7 @@ WITH calc AS (
 SELECT
     ProductName,
     UnitPrice,
-    ROUND(media, 2) AS media_UnitPrice, -- Adicionando a mÈdia do 'UnitPrice' da CTE 'calc'
+    ROUND(media, 2) AS media_UnitPrice, -- Adicionando a m√©dia do 'UnitPrice' da CTE 'calc'
     ROUND((UnitPrice - calc.media) / calc.desvio_padrao, 2) AS z_score -- Calculando o z-score
 FROM
     [dbo].[Products]
@@ -22,4 +22,6 @@ GROUP BY
     calc.media,
     calc.desvio_padrao
 HAVING
-    (UnitPrice - calc.media) / calc.desvio_padrao > 2 -- Aplicando a condiÁ„o de filtro (z-score > 2)
+    (UnitPrice - calc.media) / calc.desvio_padrao > 2 -- Aplicando a condi√ß√£o de filtro (z-score > 2)
+
+-- O Banco de Dados utilizado nesse c√≥digo vai estar dispon√≠vel na pasta 'READ.ME', para quem quiser consultar o c√≥gigo
